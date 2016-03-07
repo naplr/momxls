@@ -15,7 +15,7 @@ def xls_to_list_with_filter(filepath, sheet_index, name_col, address_col, descri
 
         name = sheet.cell(row_index, name_col).value
         address = sheet.cell(row_index, address_col).value
-        r = (name, address)
+        r = (name, address, description)
 
         li.append(r)
 
@@ -61,12 +61,13 @@ def format_name_and_address(raw_data, chars_per_line, max_lines):
         for r in formatted_address:
             formatted_item.append(r)
 
-        li.append(formatted_item)
+        # (formatted_name_address, description)
+        li.append((formatted_item, item[2]))
 
     return li
 
 
-def write_list_to_csv(filepath, num_columns, num_columns_in_between, num_rows_in_between, li):
+def create_writable_list(filepath, num_columns, num_columns_in_between, num_rows_in_between, li):
     between = '\t' * num_columns_in_between
     print(between)
     lines = []
@@ -74,15 +75,23 @@ def write_list_to_csv(filepath, num_columns, num_columns_in_between, num_rows_in
     for start_index in range(0, len(li), num_columns):
         # Get list of items that should be on the same line (according to #colums) 
         current_set = li[start_index:start_index + num_columns]
-        max_lines = max([len(item) for item in current_set])
+        max_lines = max([len(item[0]) for item in current_set])
         for i in range(max_lines):
             line = ""
             for s in current_set:
-                line += (s[i] if len(s) > i else "") + between
+                name_address = s[0]
+                # Add description on the first line.
+                line += (name_address[i] if len(name_address) > i else "") + "\t" + (s[1] if i == 0 else "") + between
             line += "\n"
             lines.append(line)
         for i in range(num_rows_in_between):
             lines.append("\n")
+
+    return lines
+
+
+def write_list_to_csv(filepath, num_columns, num_columns_in_between, num_rows_in_between, li):
+    lines = create_writable_list(filepath, num_columns, num_columns_in_between, num_rows_in_between, li)
 
     with open(filepath, 'w', encoding='utf-16') as f:
         f.write('\ufeff')
