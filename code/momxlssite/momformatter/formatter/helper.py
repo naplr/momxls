@@ -1,6 +1,7 @@
 from xlrd import open_workbook
 from momformatter.formatter.constants import special_characters
 
+
 def xls_to_list(filepath, sheet_index, name_col, address_col, first_row):
     sheet = open_workbook(filepath).sheet_by_index(sheet_index)
 
@@ -15,28 +16,21 @@ def xls_to_list(filepath, sheet_index, name_col, address_col, first_row):
 
     return li
 
-def get_real_len(s):
-    total_len = len(s)
-    total_exception = 0
-    for c in special_characters:
-        total_exception += s.count(c)
-
-    return total_len - total_exception
 
 def format_name_and_address(raw_data, chars_per_line, max_lines):
-    def format_name(name):
+    def _format_name(name):
         return "*บริษัท {0}".format(name)
 
-    def format_address(address, chars_per_line):
+    def _format_address(address, chars_per_line):
         tokens = address.split()
 
         lines = []
         current_len = 0
         current_line = ""
         for token in tokens:
-            token_len = get_real_len(token)
-            new_len = current_len + token_len + 1 # plus 1 for a space.
-            if (new_len > chars_per_line):
+            token_len = _get_real_len(token)
+            new_len = current_len + token_len + 1  # plus 1 for a space.
+            if new_len > chars_per_line:
                 lines.append(current_line)
                 current_line = ""
                 current_len = 0
@@ -44,18 +38,19 @@ def format_name_and_address(raw_data, chars_per_line, max_lines):
             current_line += "{0} ".format(token)
             current_len += token_len + 1
 
-        # send a warning if the #lines > 2
-        lines.append(current_line) # append the last line
+        # append the last line.
+        lines.append(current_line)
 
-        if (len(lines) > max_lines):
+        # send a warning if the #lines > max_lines.
+        if len(lines) > max_lines:
             lines.insert(0, "##### TOO MANY LINES #####")
 
         return lines
 
     li = []
     for item in raw_data:
-        formatted_name = format_name(item[0])
-        formatted_address = format_address(item[1], chars_per_line)
+        formatted_name = _format_name(item[0])
+        formatted_address = _format_address(item[1], chars_per_line)
 
         formatted_item = [formatted_name]
         for r in formatted_address:
@@ -67,7 +62,6 @@ def format_name_and_address(raw_data, chars_per_line, max_lines):
 
 
 def write_list_to_csv(filepath, num_columns, num_columns_in_between, num_rows_in_between, li):
-
     between = '\t' * num_columns_in_between
     print(between)
     lines = []
@@ -89,3 +83,11 @@ def write_list_to_csv(filepath, num_columns, num_columns_in_between, num_rows_in
         f.write('\ufeff')
         f.writelines(lines)
 
+
+def _get_real_len(s):
+    total_len = len(s)
+    total_exception = 0
+    for c in special_characters:
+        total_exception += s.count(c)
+
+    return total_len - total_exception

@@ -10,9 +10,7 @@ def upload_file(request):
         form = UploadFileForm(request.POST, request.FILES)
         print("Get the form!")
         if form.is_valid():
-            handle_uploaded_file(request.FILES['file'])
-            #print(request.FILES['file'])
-            #print("type is {0}".format(type(request.FILES['file'])))
+            _handle_uploaded_file(request.FILES['file'])
 
             #return HttpResponseRedirect('/successful/url/')
             return HttpResponse("Hello World")
@@ -22,8 +20,8 @@ def upload_file(request):
     return render(request, 'upload.html', {'form': form})
 
 
-# Example of how to handle uploaded file
-def handle_uploaded_file(f):
+def _handle_uploaded_file(f):
+    # TODO: Create a temp folder to keep these temp files.
     temp_input_file = 'temp_input.xlsx'
     temp_output_file = 'temp_output.csv'
     with open('temp_input.xlsx', 'wb+') as destination:

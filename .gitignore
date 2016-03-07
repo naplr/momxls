@@ -1,3 +1,7 @@
 .idea/
 *.pyc
 *.swp
+
+db.sqlite3
+temp_input.xlsx
+temp_output.csv
