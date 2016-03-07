@@ -1,10 +1,12 @@
-import momformatter.formatter.helper as helper
+#import momformatter.formatter.helper as helper
+import helper
 
 MAX_LINES = 4
 CHARS_PER_LINE = 35
 NUM_COLUMNS = 2
 NUM_COLUMNS_IN_BETWEEN = 5
 NUM_ROWS_IN_BETWEEN = 2
+KEYWORDS = ['โรงงาน', 'อิเล็กทรอนิกส์', 'ผลิต']
 
 
 def format_xls(
@@ -13,10 +15,12 @@ def format_xls(
         sheet_index=0,
         name_col=1,
         address_col=3,
+        description_col=4,
         first_row=1,
+        keywords=KEYWORDS,
         chars_per_line=CHARS_PER_LINE,
         max_lines=MAX_LINES):
-    raw_data = helper.xls_to_list(input_filepath, sheet_index, name_col, address_col, first_row)
+    raw_data = helper.xls_to_list_with_filter(input_filepath, sheet_index, name_col, address_col, description_col, first_row, keywords)
 
     formatted_data = helper.format_name_and_address(raw_data, chars_per_line, max_lines)
 
@@ -27,6 +31,6 @@ def format_xls(
 
 
 if __name__ == '__main__':
-    input_filepath = '/Users/nrd1012/Projects/momxls/resources/companies_selected.xlsx'
+    input_filepath = '/Users/nrd1012/Projects/momxls/resources/companies_raw.xlsx'
     output_filepath = '/Users/nrd1012/Projects/momxls/resources/done.csv'
-    formatter.format_xls(input_filepath, output_filepath, sheet_index=1, name_col=0, address_col=2)
+    format_xls(input_filepath, output_filepath)

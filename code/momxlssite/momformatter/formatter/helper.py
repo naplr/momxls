@@ -1,12 +1,17 @@
 from xlrd import open_workbook
-from momformatter.formatter.constants import special_characters
+#from momformatter.formatter.constants import special_characters
+from constants import special_characters
 
 
-def xls_to_list(filepath, sheet_index, name_col, address_col, first_row):
+def xls_to_list_with_filter(filepath, sheet_index, name_col, address_col, description_col, first_row, keywords):
     sheet = open_workbook(filepath).sheet_by_index(sheet_index)
 
     li = []
     for row_index in range(first_row, sheet.nrows):
+        description = sheet.cell(row_index, description_col).value
+
+        if not any(keyword in description for keyword in keywords):
+            continue
 
         name = sheet.cell(row_index, name_col).value
         address = sheet.cell(row_index, address_col).value
