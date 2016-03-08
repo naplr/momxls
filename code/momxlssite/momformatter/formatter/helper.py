@@ -1,6 +1,6 @@
 from xlrd import open_workbook
-#from momformatter.formatter.constants import special_characters
-from constants import special_characters
+from momformatter.formatter.constants import special_characters
+#from constants import special_characters
 
 
 def xls_to_list_with_filter(filepath, sheet_index, name_col, address_col, description_col, first_row, keywords):
@@ -67,7 +67,31 @@ def format_name_and_address(raw_data, chars_per_line, max_lines):
     return li
 
 
-def create_writable_list(filepath, num_columns, num_columns_in_between, num_rows_in_between, li):
+def create_writable_list(num_columns, num_columns_in_between, num_rows_in_between, li):
+    between = '\t' * num_columns_in_between
+    print(between)
+    lines = []
+    # Iterate through items
+    for start_index in range(0, len(li), num_columns):
+        # Get list of items that should be on the same line (according to #colums) 
+        current_set = li[start_index:start_index + num_columns]
+        max_lines = max([len(item[0]) for item in current_set])
+        for i in range(max_lines):
+            line = []
+            for s in current_set:
+                name_address = s[0]
+                # Add description on the first line.
+                line.append((name_address[i] if len(name_address) > i else ""))
+                line.append(s[1] if i == 0 else "")
+                line.append('')
+            lines.append(line)
+        for i in range(num_rows_in_between):
+            lines.append([])
+
+    return lines
+
+
+def create_writable_lines(num_columns, num_columns_in_between, num_rows_in_between, li):
     between = '\t' * num_columns_in_between
     print(between)
     lines = []
@@ -91,7 +115,8 @@ def create_writable_list(filepath, num_columns, num_columns_in_between, num_rows
 
 
 def write_list_to_csv(filepath, num_columns, num_columns_in_between, num_rows_in_between, li):
-    lines = create_writable_list(filepath, num_columns, num_columns_in_between, num_rows_in_between, li)
+    # TODO: switch to use csv package, so we can reuse the create_writeable_list and get rid of create_writable_lines.
+    lines = create_writable_lines(num_columns, num_columns_in_between, num_rows_in_between, li)
 
     with open(filepath, 'w', encoding='utf-16') as f:
         f.write('\ufeff')

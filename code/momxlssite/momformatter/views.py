@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponse
+import csv
 
 from momformatter.forms import UploadFileForm
 from momformatter.formatter import formatter
@@ -8,24 +9,37 @@ from momformatter.formatter import formatter
 def upload_file(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
-        print("Get the form!")
         if form.is_valid():
-            _handle_uploaded_file(request.FILES['file'])
+            lines = _format_uploaded_file_into_writable_list(request.FILES['file'])
 
-            #return HttpResponseRedirect('/successful/url/')
-            return HttpResponse("Hello World")
+            response = _create_csv_response(lines)
+            return response
     else:
         form = UploadFileForm()
 
     return render(request, 'upload.html', {'form': form})
 
 
-def _handle_uploaded_file(f):
+def _create_csv_response(lines):
+    # Create the HttpResponse object with the appropriate CSV header.
+    response = HttpResponse(content_type='text/csv; charset=utf-16')
+    response['Content-Disposition'] = 'attachment; filename="result.csv"'
+
+    writer = csv.writer(response, delimiter='\t')
+
+    for line in lines:
+        writer.writerow(line)
+
+    return response
+
+
+def _format_uploaded_file_into_writable_list(f):
     # TODO: Create a temp folder to keep these temp files.
     temp_input_file = 'temp_input.xlsx'
-    temp_output_file = 'temp_output.csv'
     with open('temp_input.xlsx', 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
 
-    formatter.format_xls(temp_input_file, temp_output_file, sheet_index=1, name_col=0, address_col=2)
+    lines = formatter.format_xls_to_csv_list(temp_input_file)
+
+    return lines
