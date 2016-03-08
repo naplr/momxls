@@ -68,8 +68,6 @@ def format_name_and_address(raw_data, chars_per_line, max_lines):
 
 
 def create_writable_list(num_columns, num_columns_in_between, num_rows_in_between, li):
-    between = '\t' * num_columns_in_between
-    print(between)
     lines = []
     # Iterate through items
     for start_index in range(0, len(li), num_columns):
@@ -81,8 +79,8 @@ def create_writable_list(num_columns, num_columns_in_between, num_rows_in_betwee
             for s in current_set:
                 name_address = s[0]
                 # Add description on the first line.
-                line.append((name_address[i] if len(name_address) > i else ""))
-                line.append(s[1] if i == 0 else "")
+                line.append((name_address[i] if len(name_address) > i else ''))
+                line.append(s[1] if i == 0 else '')
                 line.append('')
             lines.append(line)
         for i in range(num_rows_in_between):
