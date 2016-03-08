@@ -47,7 +47,7 @@ def format_name_and_address(raw_data, chars_per_line, max_lines):
         lines.append(current_line)
 
         # send a warning if the #lines > max_lines.
-        if len(lines) > max_lines:
+        if len(lines) > (max_lines - 1):
             lines.insert(0, "##### TOO MANY LINES #####")
 
         return lines
