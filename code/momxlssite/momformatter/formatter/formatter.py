@@ -6,7 +6,7 @@ CHARS_PER_LINE = 35
 NUM_COLUMNS = 2
 NUM_COLUMNS_IN_BETWEEN = 5
 NUM_ROWS_IN_BETWEEN = 2
-KEYWORDS = ['โรงงาน', 'อิเล็กทรอนิกส์', 'ผลิต']
+KEYWORDS = ['โรงงาน', 'อิเล็กทรอนิกส์', 'ผลิต', 'เกษตร']
 
 
 def format_xls_to_csv_file(
