@@ -1,8 +1,7 @@
 .idea/
 *.pyc
 *.swp
-
 db.sqlite3
-done.csv
 temp_input.xlsx
 temp_output.csv
+resources/
