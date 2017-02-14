@@ -1,12 +1,16 @@
 import momformatter.formatter.helper as helper
-#import helper
+from functools import reduce
 
 MAX_LINES = 4
 CHARS_PER_LINE = 35
 NUM_COLUMNS = 2
 NUM_COLUMNS_IN_BETWEEN = 5
 NUM_ROWS_IN_BETWEEN = 2
-KEYWORDS = ['โรงงาน', 'อิเล็กทรอนิกส์', 'ผลิต', 'เกษตร']
+
+electronics_keywords_fragments = [['อิ', 'อี'], ['เลค', 'เลก', 'เล็ค', 'เล็ก'], ['โทร', 'ทรอ'], ['นิค', 'นิก', 'นิคส์', 'นิกส์']]
+electronics_keywords = reduce(lambda x, y: [a+b for a in x for b in y], electronics_keywords_fragments)
+
+KEYWORDS = ['โรงงาน', 'ผลิต', 'เกษตร']+ electronics_keywords
 
 
 def format_xls_to_csv_file(
@@ -55,3 +59,6 @@ if __name__ == '__main__':
     input_filepath = '/Users/nrd1012/Projects/momxls/resources/companies_raw.xlsx'
     output_filepath = '/Users/nrd1012/Projects/momxls/resources/done.csv'
     format_xls_to_csv_file(input_filepath, output_filepath)
+
+    # print(electronics_keywords)
+    # print(len(electronics_keywords))
