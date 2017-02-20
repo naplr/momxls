@@ -10,7 +10,7 @@ NUM_ROWS_IN_BETWEEN = 2
 electronics_keywords_fragments = [['อิ', 'อี'], ['เลค', 'เลก', 'เล็ค', 'เล็ก'], ['โทร', 'ทรอ'], ['นิค', 'นิก', 'นิคส์', 'นิกส์']]
 electronics_keywords = reduce(lambda x, y: [a+b for a in x for b in y], electronics_keywords_fragments)
 
-KEYWORDS = ['โรงงาน', 'ผลิต', 'เกษตร']+ electronics_keywords
+KEYWORDS = ['โรงงาน', 'ผลิต', 'เกษตร'] + electronics_keywords
 
 
 def format_xls_to_csv_file(
@@ -60,5 +60,5 @@ if __name__ == '__main__':
     output_filepath = '/Users/nrd1012/Projects/momxls/resources/done.csv'
     format_xls_to_csv_file(input_filepath, output_filepath)
 
-    # print(electronics_keywords)
+    # print(KEYWORDS)
     # print(len(electronics_keywords))
