@@ -1,8 +1,9 @@
+
 import momformatter.formatter.helper as helper
 from functools import reduce
 
 MAX_LINES = 4
-CHARS_PER_LINE = 35
+CHARS_PER_LINE = 50
 NUM_COLUMNS = 2
 NUM_COLUMNS_IN_BETWEEN = 5
 NUM_ROWS_IN_BETWEEN = 2
@@ -18,13 +19,12 @@ def format_xls_to_csv_file(
         output_filepath,
         sheet_index=0,
         name_col=1,
-        address_col=3,
         description_col=4,
         first_row=1,
         keywords=KEYWORDS,
         chars_per_line=CHARS_PER_LINE,
         max_lines=MAX_LINES):
-    raw_data = helper.xls_to_list_with_filter(input_filepath, sheet_index, name_col, address_col, description_col, first_row, keywords)
+    raw_data = helper.xls_to_list_with_filter(input_filepath, sheet_index, name_col, description_col, first_row, keywords)
 
     formatted_data = helper.format_name_and_address(raw_data, chars_per_line, max_lines)
 
@@ -38,13 +38,12 @@ def format_xls_to_csv_list(
         input_filepath,
         sheet_index=0,
         name_col=1,
-        address_col=3,
         description_col=4,
         first_row=1,
         keywords=KEYWORDS,
         chars_per_line=CHARS_PER_LINE,
         max_lines=MAX_LINES):
-    raw_data = helper.xls_to_list_with_filter(input_filepath, sheet_index, name_col, address_col, description_col, first_row, keywords)
+    raw_data = helper.xls_to_list_with_filter(input_filepath, sheet_index, name_col, description_col, first_row, keywords)
 
     formatted_data = helper.format_name_and_address(raw_data, chars_per_line, max_lines)
 
