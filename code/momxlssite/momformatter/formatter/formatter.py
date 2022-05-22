@@ -56,7 +56,7 @@ def format_xls_to_csv_list(
 
 
 if __name__ == '__main__':
-    input_filepath = '/Users/nrd1012/Projects/momxls/resources/companies_raw.xlsx'
+    input_filepath = '/Users/nrd1012/Projects/momxls/resources/new_raw.xlsx'
     output_filepath = '/Users/nrd1012/Projects/momxls/resources/done.csv'
     format_xls_to_csv_file(input_filepath, output_filepath)
 

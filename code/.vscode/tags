@@ -1,0 +1,94 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ALLOWED_HOSTS	../momxlssite/momxlssite/settings.py	/^ALLOWED_HOSTS = []$/;"	kind:variable	line:28
+AUTH_PASSWORD_VALIDATORS	../momxlssite/momxlssite/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	kind:variable	line:89
+AppConfig	../momxlssite/momformatter/apps.py	/^from django.apps import AppConfig$/;"	kind:namespace	line:1
+BASE_DIR	../momxlssite/momxlssite/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	kind:variable	line:16
+CHARS_PER_LINE	../momxlssite/momformatter/formatter/formatter.py	/^CHARS_PER_LINE = 35$/;"	kind:variable	line:5
+DATABASES	../momxlssite/momxlssite/settings.py	/^DATABASES = {$/;"	kind:variable	line:78
+DEBUG	../momxlssite/momxlssite/settings.py	/^DEBUG = True$/;"	kind:variable	line:26
+HttpResponse	../momxlssite/momformatter/views.py	/^from django.http import HttpResponse$/;"	kind:namespace	line:2
+INSTALLED_APPS	../momxlssite/momxlssite/settings.py	/^INSTALLED_APPS = [$/;"	kind:variable	line:33
+KEYWORDS	../momxlssite/momformatter/formatter/formatter.py	/^KEYWORDS = ['โรงงาน', 'ผลิต', 'เกษตร'] + electronics_keywords$/;"	kind:variable	line:13
+LANGUAGE_CODE	../momxlssite/momxlssite/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	kind:variable	line:108
+MAX_LINES	../momxlssite/momformatter/formatter/formatter.py	/^MAX_LINES = 4$/;"	kind:variable	line:4
+MIDDLEWARE_CLASSES	../momxlssite/momxlssite/settings.py	/^MIDDLEWARE_CLASSES = [$/;"	kind:variable	line:43
+MomformatterConfig	../momxlssite/momformatter/apps.py	/^class MomformatterConfig(AppConfig):$/;"	kind:class	line:4
+NUM_COLUMNS	../momxlssite/momformatter/formatter/formatter.py	/^NUM_COLUMNS = 2$/;"	kind:variable	line:6
+NUM_COLUMNS_IN_BETWEEN	../momxlssite/momformatter/formatter/formatter.py	/^NUM_COLUMNS_IN_BETWEEN = 5$/;"	kind:variable	line:7
+NUM_ROWS_IN_BETWEEN	../momxlssite/momformatter/formatter/formatter.py	/^NUM_ROWS_IN_BETWEEN = 2$/;"	kind:variable	line:8
+ROOT_URLCONF	../momxlssite/momxlssite/settings.py	/^ROOT_URLCONF = 'momxlssite.urls'$/;"	kind:variable	line:54
+SECRET_KEY	../momxlssite/momxlssite/settings.py	/^SECRET_KEY = 'y6z35-s*ntpwx9&*o9seo4_-)t6!$zx7j5mafso*0&gm8gf_$b'$/;"	kind:variable	line:23
+STATIC_URL	../momxlssite/momxlssite/settings.py	/^STATIC_URL = '\/static\/'$/;"	kind:variable	line:122
+TEMPLATES	../momxlssite/momxlssite/settings.py	/^TEMPLATES = [$/;"	kind:variable	line:56
+TIME_ZONE	../momxlssite/momxlssite/settings.py	/^TIME_ZONE = 'UTC'$/;"	kind:variable	line:110
+USE_I18N	../momxlssite/momxlssite/settings.py	/^USE_I18N = True$/;"	kind:variable	line:112
+USE_L10N	../momxlssite/momxlssite/settings.py	/^USE_L10N = True$/;"	kind:variable	line:114
+USE_TZ	../momxlssite/momxlssite/settings.py	/^USE_TZ = True$/;"	kind:variable	line:116
+UploadFileForm	../momxlssite/momformatter/forms.py	/^class UploadFileForm(forms.Form):$/;"	kind:class	line:4
+UploadFileForm	../momxlssite/momformatter/views.py	/^from momformatter.forms import UploadFileForm$/;"	kind:namespace	line:5
+WSGI_APPLICATION	../momxlssite/momxlssite/settings.py	/^WSGI_APPLICATION = 'momxlssite.wsgi.application'$/;"	kind:variable	line:72
+__init__.py	../momxlssite/momformatter/__init__.py	1;"	kind:file	line:1
+__init__.py	../momxlssite/momformatter/formatter/__init__.py	1;"	kind:file	line:1
+__init__.py	../momxlssite/momxlssite/__init__.py	1;"	kind:file	line:1
+_create_csv_response	../momxlssite/momformatter/views.py	/^def _create_csv_response(lines):$/;"	kind:function	line:23
+_format_address	../momxlssite/momformatter/formatter/helper.py	/^    def _format_address(address, chars_per_line):$/;"	kind:function	line:29
+_format_name	../momxlssite/momformatter/formatter/helper.py	/^    def _format_name(name):$/;"	kind:function	line:26
+_format_uploaded_file_into_writable_list	../momxlssite/momformatter/views.py	/^def _format_uploaded_file_into_writable_list(f):$/;"	kind:function	line:36
+_get_real_len	../momxlssite/momformatter/formatter/helper.py	/^def _get_real_len(s):$/;"	kind:function	line:124
+admin	../momxlssite/momxlssite/urls.py	/^from django.contrib import admin$/;"	kind:namespace	line:17
+application	../momxlssite/momxlssite/wsgi.py	/^application = get_wsgi_application()$/;"	kind:variable	line:16
+apps.py	../momxlssite/momformatter/apps.py	1;"	kind:file	line:1
+constants.py	../momxlssite/momformatter/formatter/constants.py	1;"	kind:file	line:1
+create_writable_lines	../momxlssite/momformatter/formatter/helper.py	/^def create_writable_lines(num_columns, num_columns_in_between, num_rows_in_between, li):$/;"	kind:function	line:92
+create_writable_list	../momxlssite/momformatter/formatter/helper.py	/^def create_writable_list(num_columns, num_columns_in_between, num_rows_in_between, li):$/;"	kind:function	line:70
+csv	../momxlssite/momformatter/views.py	/^import csv$/;"	kind:namespace	line:3
+electronics_keywords	../momxlssite/momformatter/formatter/formatter.py	/^electronics_keywords = reduce(lambda x, y: [a+b for a in x for b in y], electronics_keywords_fragments)$/;"	kind:variable	line:11
+electronics_keywords_fragments	../momxlssite/momformatter/formatter/formatter.py	/^electronics_keywords_fragments = [['อิ', 'อี'], ['เลค', 'เลก', 'เล็ค', 'เล็ก'], ['โทร', 'ทรอ'], ['นิค', 'นิก', 'นิคส์', 'นิกส์']]$/;"	kind:variable	line:10
+execute_from_command_line	../momxlssite/manage.py	/^    from django.core.management import execute_from_command_line$/;"	kind:namespace	line:8
+file	../momxlssite/momformatter/forms.py	/^    file = forms.FileField()$/;"	kind:variable	line:5
+format_name_and_address	../momxlssite/momformatter/formatter/helper.py	/^def format_name_and_address(raw_data, chars_per_line, max_lines):$/;"	kind:function	line:25
+format_xls_to_csv_file	../momxlssite/momformatter/formatter/formatter.py	/^def format_xls_to_csv_file($/;"	kind:function	line:16
+format_xls_to_csv_list	../momxlssite/momformatter/formatter/formatter.py	/^def format_xls_to_csv_list($/;"	kind:function	line:37
+formatter	../momxlssite/momformatter/formatter/formatter.py	/^import momformatter.formatter.helper as helper$/;"	kind:namespace	line:1
+formatter	../momxlssite/momformatter/views.py	/^from momformatter.formatter import formatter$/;"	kind:namespace	line:6
+formatter.py	../momxlssite/momformatter/formatter/formatter.py	1;"	kind:file	line:1
+forms	../momxlssite/momformatter/forms.py	/^from django import forms$/;"	kind:namespace	line:1
+forms.py	../momxlssite/momformatter/forms.py	1;"	kind:file	line:1
+get_wsgi_application	../momxlssite/momxlssite/wsgi.py	/^from django.core.wsgi import get_wsgi_application$/;"	kind:namespace	line:12
+helper	../momxlssite/momformatter/formatter/formatter.py	/^import momformatter.formatter.helper as helper$/;"	kind:namespace	line:1
+helper.py	../momxlssite/momformatter/formatter/helper.py	1;"	kind:file	line:1
+include	../momxlssite/momxlssite/urls.py	/^from django.conf.urls import url, include$/;"	kind:namespace	line:16
+input_filepath	../momxlssite/momformatter/formatter/formatter.py	/^    input_filepath = '\/Users\/nrd1012\/Projects\/momxls\/resources\/companies_raw.xlsx'$/;"	kind:variable	line:59
+manage.py	../momxlssite/manage.py	1;"	kind:file	line:1
+momformatter	../momxlssite/momformatter/formatter/formatter.py	/^import momformatter.formatter.helper as helper$/;"	kind:namespace	line:1
+momformatter	../momxlssite/momformatter/urls.py	/^import momformatter.views as views$/;"	kind:namespace	line:2
+name	../momxlssite/momformatter/apps.py	/^    name = 'momformatter'$/;"	kind:variable	line:5
+open_workbook	../momxlssite/momformatter/formatter/helper.py	/^from xlrd import open_workbook$/;"	kind:namespace	line:1
+os	../momxlssite/manage.py	/^import os$/;"	kind:namespace	line:2
+os	../momxlssite/momxlssite/settings.py	/^import os$/;"	kind:namespace	line:13
+os	../momxlssite/momxlssite/wsgi.py	/^import os$/;"	kind:namespace	line:10
+output_filepath	../momxlssite/momformatter/formatter/formatter.py	/^    output_filepath = '\/Users\/nrd1012\/Projects\/momxls\/resources\/done.csv'$/;"	kind:variable	line:60
+patterns	../momxlssite/momformatter/urls.py	/^from django.conf.urls import patterns, url$/;"	kind:namespace	line:1
+reduce	../momxlssite/momformatter/formatter/formatter.py	/^from functools import reduce$/;"	kind:namespace	line:2
+render	../momxlssite/momformatter/views.py	/^from django.shortcuts import render$/;"	kind:namespace	line:1
+settings.py	../momxlssite/momxlssite/settings.py	1;"	kind:file	line:1
+special_characters	../momxlssite/momformatter/formatter/constants.py	/^special_characters = ["ุ", "ู", "ิ", "ี", "่", "้", "๊", "ั", "์"]$/;"	kind:variable	line:1
+special_characters	../momxlssite/momformatter/formatter/helper.py	/^from momformatter.formatter.constants import special_characters$/;"	kind:namespace	line:2
+sys	../momxlssite/manage.py	/^import sys$/;"	kind:namespace	line:3
+upload_file	../momxlssite/momformatter/views.py	/^def upload_file(request):$/;"	kind:function	line:9
+url	../momxlssite/momformatter/urls.py	/^from django.conf.urls import patterns, url$/;"	kind:namespace	line:1
+url	../momxlssite/momxlssite/urls.py	/^from django.conf.urls import url, include$/;"	kind:namespace	line:16
+urlpatterns	../momxlssite/momformatter/urls.py	/^urlpatterns = patterns('',$/;"	kind:variable	line:5
+urlpatterns	../momxlssite/momxlssite/urls.py	/^urlpatterns = [$/;"	kind:variable	line:20
+urls.py	../momxlssite/momformatter/urls.py	1;"	kind:file	line:1
+urls.py	../momxlssite/momxlssite/urls.py	1;"	kind:file	line:1
+views	../momxlssite/momformatter/urls.py	/^import momformatter.views as views$/;"	kind:namespace	line:2
+views.py	../momxlssite/momformatter/views.py	1;"	kind:file	line:1
+write_list_to_csv	../momxlssite/momformatter/formatter/helper.py	/^def write_list_to_csv(filepath, num_columns, num_columns_in_between, num_rows_in_between, li):$/;"	kind:function	line:115
+wsgi.py	../momxlssite/momxlssite/wsgi.py	1;"	kind:file	line:1
+xls_to_list_with_filter	../momxlssite/momformatter/formatter/helper.py	/^def xls_to_list_with_filter(filepath, sheet_index, name_col, address_col, description_col, first_row, keywords):$/;"	kind:function	line:6
