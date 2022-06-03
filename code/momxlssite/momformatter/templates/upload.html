@@ -3,6 +3,10 @@
     <head>
         <meta charset="utf-8">
         <title>Lovely Mom Excel Formatter</title>
+        <style>
+            ul#id_format li{ display: inline-block; }
+            #format_selects { display: flex; align-items: center; }
+        </style>
     </head>
     <body>
         <form action="{% url "index" %}" method="POST" enctype="multipart/form-data">
@@ -10,13 +14,23 @@
             <p>
             Instruction: <br>
             1. The information in an Excel has to be on the first sheet (look at the tab at the bottom in Excel). <br>
-            2. The companies' names have to be on B Column. <br>
-            3. The companies' address have to be on D Column. <br>
-            4. The companies' description have to be on E Column. <br>
-            5. The filter keywords are "ผลิต", "โรงงาน", "อิเล็กทรอนิกส์", "เกษตร". <br>
+            2. Select the format of the file. <br>
+            3. Upload file.
             </p>
+            <p>Format:</p>
+            <ol type="a">
+                <li>Name: Column B, Description: Column F, Address: Column G - K</li>
+                <li>Name: Column A, Description: Column H, Address: Column B</li>
+                <li>Name: Column B, Description: Column E, Address: Column F - M</li>
+            </ol>
+            <p>The filter keywords: "ผลิต", "โรงงาน", "อิเล็กทรอนิกส์", "เกษตร".</p>
             <p>{{ form.non_field_errors }}</p>
             <p> {{ form.file.help_text }} </p>
+            <p>{{ form.format.errors }}</p>
+            <div id="format_selects">
+                Format: 
+                {{ form.format }}
+            </div>
             <p>
                 {{ form.file.errors }}
                 {{ form.file }}

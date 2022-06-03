@@ -10,8 +10,8 @@ def upload_file(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
-            lines = _format_uploaded_file_into_writable_list(request.FILES['file'])
-
+            format = int(form.cleaned_data['format'])
+            lines = _format_uploaded_file_into_writable_list(request.FILES['file'], format)
             response = _create_csv_response(lines)
             return response
     else:
@@ -33,13 +33,13 @@ def _create_csv_response(lines):
     return response
 
 
-def _format_uploaded_file_into_writable_list(f):
+def _format_uploaded_file_into_writable_list(f, format):
     # TODO: Create a temp folder to keep these temp files.
     temp_input_file = 'temp_input.xlsx'
     with open('temp_input.xlsx', 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
 
-    lines = formatter.format_xls_to_csv_list(temp_input_file)
+    lines = formatter.format_xls_to_csv_list(temp_input_file, format)
 
     return lines
